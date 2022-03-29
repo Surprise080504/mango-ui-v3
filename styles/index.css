@@ -1,0 +1,498 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme */
+
+:root {
+  --primary: theme('colors.light-theme.orange.DEFAULT');
+  --primary-dark: theme('colors.light-theme.orange.dark');
+  --red: theme('colors.light-theme.red.DEFAULT');
+  --red-dark: theme('colors.light-theme.red.dark');
+  --red-muted: theme('colors.light-theme.red.muted');
+  --green: theme('colors.light-theme.green.DEFAULT');
+  --green-dark: theme('colors.light-theme.green.dark');
+  --green-muted: theme('colors.light-theme.green.muted');
+  --orange: theme('colors.light-theme.orange.DEFAULT');
+  --bkg-1: theme('colors.light-theme["bkg-1"]');
+  --bkg-2: theme('colors.light-theme["bkg-2"]');
+  --bkg-3: theme('colors.light-theme["bkg-3"]');
+  --bkg-4: theme('colors.light-theme["bkg-4"]');
+  --fgd-1: theme('colors.light-theme["fgd-1"]');
+  --fgd-2: theme('colors.light-theme["fgd-2"]');
+  --fgd-3: theme('colors.light-theme["fgd-3"]');
+  --fgd-4: theme('colors.light-theme["fgd-4"]');
+}
+
+[data-theme='Dark'] {
+  --primary: theme('colors.dark-theme.yellow.DEFAULT');
+  --primary-dark: theme('colors.dark-theme.yellow.dark');
+  --red: theme('colors.dark-theme.red.DEFAULT');
+  --red-dark: theme('colors.dark-theme.red.dark');
+  --red-muted: theme('colors.dark-theme.red.muted');
+  --green: theme('colors.dark-theme.green.DEFAULT');
+  --green-dark: theme('colors.dark-theme.green.dark');
+  --green-muted: theme('colors.dark-theme.green.muted');
+  --orange: theme('colors.dark-theme.orange.DEFAULT');
+  --bkg-1: theme('colors.dark-theme["bkg-1"]');
+  --bkg-2: theme('colors.dark-theme["bkg-2"]');
+  --bkg-3: theme('colors.dark-theme["bkg-3"]');
+  --bkg-4: theme('colors.dark-theme["bkg-4"]');
+  --fgd-1: theme('colors.dark-theme["fgd-1"]');
+  --fgd-2: theme('colors.dark-theme["fgd-2"]');
+  --fgd-3: theme('colors.dark-theme["fgd-3"]');
+  --fgd-4: theme('colors.dark-theme["fgd-4"]');
+}
+
+[data-theme='Mango'] {
+  --primary: theme('colors.mango-theme.yellow.DEFAULT');
+  --primary-dark: theme('colors.mango-theme.yellow.dark');
+  --red: theme('colors.mango-theme.red.DEFAULT');
+  --red-dark: theme('colors.mango-theme.red.dark');
+  --red-muted: theme('colors.mango-theme.red.muted');
+  --green: theme('colors.mango-theme.green.DEFAULT');
+  --green-dark: theme('colors.mango-theme.green.dark');
+  --green-muted: theme('colors.mango-theme.green.muted');
+  --orange: theme('colors.mango-theme.orange.DEFAULT');
+  --bkg-1: theme('colors.mango-theme["bkg-1"]');
+  --bkg-2: theme('colors.mango-theme["bkg-2"]');
+  --bkg-3: theme('colors.mango-theme["bkg-3"]');
+  --bkg-4: theme('colors.mango-theme["bkg-4"]');
+  --fgd-1: theme('colors.mango-theme["fgd-1"]');
+  --fgd-2: theme('colors.mango-theme["fgd-2"]');
+  --fgd-3: theme('colors.mango-theme["fgd-3"]');
+  --fgd-4: theme('colors.mango-theme["fgd-4"]');
+}
+
+/* Base */
+
+body {
+  @apply text-sm font-body tracking-wider;
+}
+
+h1 {
+  @apply font-bold text-th-fgd-1 text-xl;
+}
+
+h3 {
+  @apply font-bold text-th-fgd-1 text-base;
+}
+
+p {
+  @apply text-th-fgd-3 mb-2.5;
+}
+
+a {
+  @apply text-th-primary hover:text-th-primary-dark;
+}
+
+button {
+  transition: all 0.3s ease;
+  @apply rounded-md tracking-wider;
+}
+
+button.transition-none {
+  transition: none;
+}
+
+.default-transition {
+  @apply transition-all duration-300;
+}
+
+.tiny-text {
+  font-size: 0.65rem;
+  line-height: 1.5;
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+  }
+}
+
+/* Chart */
+
+.TVChartContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.tradingview-chart {
+  display: contents;
+}
+
+/* Grid */
+
+.react-grid-item.react-grid-placeholder {
+  background: var(--bkg-3);
+  opacity: 90%;
+  border-radius: 8px;
+  transition-duration: 100ms;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.react-resizable-handle {
+  background-image: none;
+  z-index: 100;
+}
+
+.react-grid-item > .react-resizable-handle {
+  width: 24px;
+  height: 24px;
+}
+
+.react-grid-item > .react-resizable-handle::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+  border-right: 3px solid var(--primary);
+  border-bottom: 3px solid var(--primary);
+  border-radius: 1px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Scrollbars */
+
+body::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--bkg-1);
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--bkg-4);
+}
+
+body::-webkit-scrollbar-track {
+  background-color: inherit;
+}
+
+body::-webkit-scrollbar-corner {
+  background-color: var(--bkg-3);
+}
+
+.thin-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 8px;
+  background-color: var(--bkg-2);
+}
+
+.thin-scroll::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--bkg-3);
+}
+
+.thin-scroll::-webkit-scrollbar-track {
+  background-color: inherit;
+}
+
+.thin-scroll::-webkit-scrollbar-corner {
+  background-color: var(--bkg-3);
+}
+
+/* Responsive table */
+/* inspired by: https://css-tricks.com/responsive-data-tables/ */
+
+.responsiveTable {
+  width: 100%;
+}
+
+.responsiveTable td .tdBefore {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .responsiveTable table,
+  .responsiveTable thead,
+  .responsiveTable tbody,
+  .responsiveTable th,
+  .responsiveTable td,
+  .responsiveTable tr {
+    display: block;
+  }
+
+  .responsiveTable thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    border-bottom: 2px solid #333;
+  }
+
+  .responsiveTable tbody tr {
+    @apply px-4;
+  }
+
+  .responsiveTable td.pivoted {
+    /* Behave like a "row" */
+    @apply pb-1;
+    position: relative;
+    padding-left: calc(50% + 10px) !important;
+    text-align: left !important;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+
+  .responsiveTable td.pivoted:last-child {
+    /* Behave like a "row" */
+    @apply pb-4;
+  }
+
+  .responsiveTable td.pivoted:last-child {
+    /* Behave like a "row" */
+    @apply border-b-0;
+  }
+
+  .responsiveTable td .tdBefore {
+    /* Now like a table header */
+    @apply text-th-fgd-3 font-normal;
+    position: absolute;
+    display: block;
+
+    /* Top/left values mimic padding */
+    left: 1rem;
+    width: calc(50% - 20px);
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    text-align: left !important;
+  }
+}
+
+/* phone input */
+
+.react-tel-input .form-control:hover + div {
+  border-right: 1px solid var(--primary) !important;
+}
+
+.react-tel-input .form-control:focus + div {
+  border-right: 1px solid var(--primary) !important;
+}
+
+.react-tel-input .selected-flag:hover {
+  background-color: transparent !important;
+}
+
+.react-tel-input .flag-dropdown .open {
+  background-color: transparent !important;
+}
+
+.react-tel-input .flag-dropdown:active {
+  background-color: transparent !important;
+}
+
+.react-tel-input .country-list .country:hover {
+  background-color: var(--bkg-3) !important;
+}
+
+.react-tel-input .country-list .highlight {
+  background-color: var(--bkg-3) !important;
+}
+
+.react-tel-input .country-list {
+  margin: 8px 0 10px -6px !important;
+}
+
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus,
+.react-tel-input .selected-flag.open {
+  background-color: transparent !important;
+}
+
+/* orderbook flash */
+
+@keyframes green-flash {
+  from {
+    background-color: var(--green-muted);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+@-webkit-keyframes green-flash {
+  from {
+    background-color: var(--green-muted);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+@-moz-keyframes green-flash {
+  from {
+    background-color: var(--green-muted);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes red-flash {
+  from {
+    background-color: var(--red-muted);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+@-webkit-keyframes red-flash {
+  from {
+    background-color: var(--red-muted);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+@-moz-keyframes red-flash {
+  from {
+    background-color: var(--red-muted);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+.green-flash {
+  -moz-animation: green-flash 0.5s ease 0s 1 alternate;
+  -webkit-animation: green-flash 0.5s ease 0s 1 alternate;
+  animation: green-flash 0.5s ease 0s 1 alternate;
+}
+
+.red-flash {
+  -moz-animation: red-flash 0.5s ease 0s 1 alternate;
+  -webkit-animation: red-flash 0.5s ease 0s 1 alternate;
+  animation: red-flash 0.5s ease 0s 1 alternate;
+}
+
+.react-swipeable-view-container > div[aria-hidden='false'] {
+  height: 100%;
+}
+
+.react-swipeable-view-container > div[aria-hidden='true'] {
+  height: 0;
+}
+
+/* Intro Tour */
+
+.intro-tooltip * {
+  @apply bg-th-bkg-1 font-body text-th-fgd-1;
+}
+
+.introjs-tooltip {
+  @apply bg-transparent;
+}
+
+.introjs-arrow {
+  @apply border-0;
+}
+
+.introjs-skipbutton {
+  @apply text-xs text-th-fgd-4 hover:text-th-fgd-2;
+}
+
+.introjs-tooltip-header {
+  @apply rounded-t-md;
+  padding: 10px 10px 0px;
+}
+
+.introjs-tooltiptext {
+  padding: 10px 20px 20px;
+}
+
+.introjs-tooltipbuttons {
+  @apply border-th-bkg-4 font-bold rounded-b-md focus:outline-none;
+}
+
+.introjs-nextbutton {
+  @apply bg-th-bkg-4 border-th-bkg-4 flex h-4 items-center opacity-60 pointer-events-none rounded-full text-sm text-th-fgd-1;
+  text-shadow: none;
+}
+
+.introjs-prevbutton {
+  @apply hidden;
+}
+
+.introjs-button:hover {
+  @apply bg-th-bkg-4 border-th-bkg-4 brightness-[1.15] text-th-fgd-1;
+}
+
+.introjs-button:focus {
+  @apply bg-th-bkg-4 border-th-bkg-4 shadow-none text-th-fgd-1;
+}
+
+.introjs-hidden {
+  @apply hidden;
+}
+
+.introjs-progressbar {
+  @apply bg-th-primary;
+}
+
+.intro-tooltip h4 {
+  @apply font-body font-bold mb-2 text-lg;
+}
+
+.intro-tooltip p {
+  @apply font-body mb-1 text-sm text-th-fgd-3;
+}
+
+.introjs-bullets ul li a {
+  @apply bg-th-bkg-4;
+}
+
+.introjs-bullets ul li a:hover {
+  @apply bg-th-fgd-4;
+}
+
+.introjs-bullets ul li a.active {
+  @apply bg-th-primary;
+}
+
+.intro-highlight {
+  @apply border-0;
+}
+
+.introjs-progress {
+  @apply rounded-none h-0.5 m-0;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.flipcard {
+  background-color: transparent;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.flipcard-front {
+  @media screen and (min-width: 768px) {
+    height: 100%;
+    position: absolute;
+  }
+}
+
+.fadein-floating-element {
+  animation: fadein 1s linear;
+}
